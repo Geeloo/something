@@ -47,6 +47,7 @@ public class PathAndFiles {
 		System.out.println(Arrays.toString(elements));
 		System.out.println("-------------------------");
 		printAll(elementNumbers,0);
+		printAll_2(elementNumbers,0);
 	}
 	/**
 	 * 计算用不同数量的零钱凑成某一固定总钱数的所有可能
@@ -73,7 +74,34 @@ public class PathAndFiles {
 			}
 		}
 	}
-	
+/**
+	 * 计算用不同数量的零钱凑成某一固定总钱数的所有可能
+	 * 
+	 * @param elementNumbers 每种零钱的个数
+	 * @param currentIndex 当前计算的零钱下标
+	 */
+	private static void printAll_2(int[] elementNumbers,int currentIndex){
+		int loopNumber = (int)(sum / elements[currentIndex]);
+		for(int i = 0;i <= loopNumber+1;i++){
+			elementNumbers[currentIndex] = i;
+			
+			if(currentIndex >= elements.length - 1){
+				double currSum = sum(elementNumbers);
+				if( currSum == sum){
+					System.out.println(Arrays.toString(elementNumbers));
+					elementNumbers[currentIndex] = 0;
+					break;
+				}else if(currSum > sum){
+					elementNumbers[currentIndex] = 0;
+					break;
+				}
+			}else{
+				
+					printAll(elementNumbers,currentIndex + 1);
+				
+			}
+		}
+	}	
 	private static double sum(int[] elementNumbers){
 		
 		double sum = 0.0;
