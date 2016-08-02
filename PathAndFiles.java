@@ -43,10 +43,17 @@ public class PathAndFiles {
 		
 		
 		elementNumbers = new int[elements.length];
+		
 		Arrays.fill(elementNumbers, 0);
 		System.out.println(Arrays.toString(elements));
 		System.out.println("-------------------------");
 		printAll(elementNumbers,0);
+		
+		System.out.println();
+		
+		Arrays.fill(elementNumbers, 0);
+		System.out.println(Arrays.toString(elements));
+		System.out.println("-------------------------");
 		printAll_2(elementNumbers,0);
 	}
 	/**
@@ -97,7 +104,7 @@ public class PathAndFiles {
 				}
 			}else{
 				
-					printAll(elementNumbers,currentIndex + 1);
+					printAll_2(elementNumbers,currentIndex + 1);
 				
 			}
 		}
