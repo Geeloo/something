@@ -28,16 +28,14 @@ public class Queen {
 		}
 	}
 	private static boolean canEat(){
-		boolean canEat = false;
-		//canEat = square[list.size()-1][Integer.parseInt(list.get(list.size()-1))] > 0;
+		//boolean canEat = square[list.size()-1][Integer.parseInt(list.get(list.size()-1))] > 0;
 		int i = 0;
 		for(;i<list.size()-1;i++){
 			if(Math.abs(list.size()-1 - i) == Math.abs(Integer.parseInt(list.get(list.size()-1)) - Integer.parseInt(list.get(i)))){
-				canEat = true;
-				break;
+				return true;
 			}				
 		}
-		return canEat;
+		return false;
 	}
 	private static void moveTo(List<String> src, int src_position,
 			List<String> dest, int dest_position) {
